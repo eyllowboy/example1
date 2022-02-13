@@ -40,4 +40,18 @@
 
     </tbody>
 </table>
+<br><br><br><br><br><br><br><br>
+<H1>Add user</H1>
+<form action="FirstSerlet" method="POST">
+    Name: <input name="name"/>
+    <br><br>
+    Surname: <input name="surname"/>
+    <br><br>
+    Age: <input name="age"/>
+    <br><br>
+
+
+    <br><br>
+    <input type="submit" value="Submit"/>
+</form>
 </html>

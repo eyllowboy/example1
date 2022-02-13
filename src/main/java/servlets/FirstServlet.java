@@ -23,8 +23,6 @@ public class FirstServlet extends HttpServlet {
         users = UserDAO.getAllUsers();
 
 
-        System.out.println(users.get(0).getName());
-
         req.setAttribute("users",users);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/allUsers.jsp");
         requestDispatcher.forward(req, resp);
@@ -38,19 +36,26 @@ public class FirstServlet extends HttpServlet {
             User user = new User();
             String name = req.getParameter("name");
             String surname = req.getParameter("surname");
-            //int age = req.getParameter("age");
+            int age = Integer.parseInt(req.getParameter("age"));
 
-
+            user.setPid(11);
             user.setName(name);
             user.setSurname(surname);
             user.setAge(25);
-            System.out.println(user.getName() + user.getSurname());
+            UserDAO.addUsers(user);
+            System.out.println("@@@@@@");
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        System.out.println("!!!!!!");
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/addUser.jsp");
+        List<User> users = null;
+
+        users = UserDAO.getAllUsers();
+
+
+        req.setAttribute("users",users);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/allUsers.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

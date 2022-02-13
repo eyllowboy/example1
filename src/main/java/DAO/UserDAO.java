@@ -41,4 +41,33 @@ public class UserDAO {
         return userList;
 
     }
+    public static List<User> addUsers(User user){
+
+        try{
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        List<User> userList = new ArrayList<>();
+        try{
+            String sql ="INSERT INTO users(pid,name,surname,age) VALUES (?, ?, ?, ?)";
+            Connection connection = DriverManager.getConnection(url,userss,password);
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,user.getPid());
+            ps.setString(2,user.getName());
+            ps.setString(3,user.getSurname());
+            ps.setInt(4,user.getAge());
+            ps.execute();
+
+
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return userList;
+
+    }
+
+
+
 }
