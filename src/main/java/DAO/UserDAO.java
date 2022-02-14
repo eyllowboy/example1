@@ -14,10 +14,10 @@ public class UserDAO {
     private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, surname, age) VALUES "
             + " (?, ?, ?);";
 
-    private static final String SELECT_USER_BY_ID = "select id,name,surname,age from users where id =?";
+    private static final String SELECT_USER_BY_ID = "select pid,name,surname,age from users where pid =?";
     private static final String SELECT_ALL_USERS = "select * from users";
-    private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
-    private static final String UPDATE_USERS_SQL = "update users set name = ?,surname= ?, age =? where id = ?;";
+    private static final String DELETE_USERS_SQL = "delete from users where pid = ?;";
+    private static final String UPDATE_USERS_SQL = "update users set name = ?,surname= ?, age =? where pid = ?;";
 
     public UserDAO() {
     }
